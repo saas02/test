@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Shoping Cart!{% endblock %}
+
+{% block body %}
+        <form method="POST" action="{{ path('create_order') }}">
+
+            <div class="container">
+                <div class="row">
+                    <!-- Elementos generados a partir del JSON -->
+                    <main id="items" class="col-sm-8 row"></main>
+                    <!-- Carrito -->
+                    <aside class="col-sm-4">
+                        <input id="data-name" name="data-name" value='Sergio Amaya' readonly>
+                        <input id="data-email" name="data-email" value='saas02@gmail.com' readonly>
+                        <input id="data-phone" name="data-phone" value='3167259347' readonly>
+                        <h2>Carrito</h2>
+                        <!-- Elementos del carrito -->
+                        <ul id="carrito" class="list-group"></ul>
+                        <hr>
+                        <!-- Precio total -->
+                        <p class="text-right">Total: $ <span id="total"></span></p>
+                        <button id="boton-ordenar" class="btn btn-success">Ordenar</button>
+                        <span id="boton-vaciar" class="btn btn-danger">Vaciar</span>
+                        <input id="data-cart" name="data-cart" value='' type='hidden'>
+                        <br>
+                        {{ error }}
+                    </aside>
+                </div>
+            </div>
+
+        </form>
+{% endblock %}
