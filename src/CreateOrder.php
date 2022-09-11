@@ -12,15 +12,15 @@ class CreateOrder
     {
         try {
 
-            $PlaceToPay = new PlaceToPay();
+            $Gateway = new PlaceToPay();
 
-            $credentials = $PlaceToPay->getCredentials();
+            $credentials = $Gateway->getCredentials();
 
-            $request = $PlaceToPay->getRequest($credentials, $data);
+            $request = $Gateway->getRequest($credentials, $data);
 
-            $request['url'] = $PlaceToPay->getUrl();
+            $request['url'] = $Gateway->getUrl();
 
-            $response = $PlaceToPay->getResponse($request)->getContent();
+            $response = $Gateway->getResponse($request)->getContent();
 
             $json  = json_decode($response, true);
 
